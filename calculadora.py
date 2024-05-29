@@ -1,5 +1,4 @@
 import math
-import datetime, datedelta
 
 def Soma():
     x = float(input("Digite o valor de x: "))
@@ -16,8 +15,13 @@ def Subtracao():
 def Divisao():
     x = float(input("Digite o valor de x: "))
     y = float(input("Digite o valor de y: "))
-    resultadoDivisao = x / y
+
+    if y == 0:
+        print("O número não pode ser dividido por zero!\nTente outro número.")
+        Divisao()
+    else: resultadoDivisao = x / y
     print("Resultado da divisão:", resultadoDivisao)
+    
 
 def Multiplicacao():
     x = float(input("Digite o valor de x: "))
@@ -52,8 +56,6 @@ def Fatorial():
 def MDC():
     x = int(input("Digite o primeiro número: "))
     y = int(input("Digite o segundo número: "))
-    
-    # Implementação do algoritmo de Euclides para calcular o MDC
     while y != 0:
         x, y = y, x % y
     
@@ -63,13 +65,11 @@ def MMC():
     x = int(input("Digite o primeiro número: "))
     y = int(input("Digite o segundo número: "))
     
-    # Função auxiliar para calcular o MDC
     def mdc(a, b):
         while b != 0:
             a, b = b, a % b
         return a
     
-    # Fórmula do MMC usando o MDC
     mmc = abs(x * y) // mdc(x, y)
     
     print("O mínimo múltiplo comum (MMC) entre os dois números é:", mmc)
@@ -80,12 +80,10 @@ def RegraDeTres():
     b = float(input("Segundo valor (B): "))
     c = float(input("Terceiro valor (C): "))
     
-    # Verificando se algum dos valores é zero para evitar divisão por zero
     if a == 0 or b == 0 or c == 0:
         print("Erro: Não é possível calcular a regra de três com valores iguais a zero.")
         return
     
-    # Calculando o valor desconhecido usando a proporção
     resultado = (c * b) / a
     
     print("O valor desconhecido é:", resultado)
